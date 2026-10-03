@@ -2,21 +2,67 @@
 
 **Ron Richardson | GRC portfolio | October 3, 2026**
 
-I completed TryHackMe's Vulnerability Scanning Tools room and translated its scan observations into a business-risk assessment and a proposed remediation plan. The project demonstrates how I separate scanner output from validated risk and communicate the decisions management needs to make.
+This repository packages the results of a TryHackMe vulnerability assessment into a governance-focused deliverable that translates scanner output into business risk, remediation priorities, and evidence tracking.
 
-## Read the project
+The project demonstrates how technical findings can be translated into executive communication, operational prioritization, and validated remediation planning.
 
-| Document | Purpose |
-|---|---|
-| [Executive risk memo](Project_1_Executive_Risk_Memo.md) | Management recommendation and decisions requested |
-| [Findings analysis](FINDINGS.md) | Evidence, control gaps, business consequences and validation questions for nine observations |
-| [POA&M workbook](Project_1_Vulnerability_Risk_POAM.xlsx) | Proposed owners, target dates, status and closure requirements |
-| [Evidence register](evidence/README.md) | Source files, screenshots and provenance limitations |
+## Project deliverables
 
-## Scope
+| Artifact | Purpose |
+| --- | --- |
+| [docs/Executive_Risk_Memo.md](docs/Executive_Risk_Memo.md) | Executive memo summarizing the risk posture and decisions required |
+| [docs/FINDINGS.md](docs/FINDINGS.md) | Detailed findings analysis covering evidence, risks, and validation questions |
+| [Project_1_Vulnerability_Risk_POAM.xlsx](Project_1_Vulnerability_Risk_POAM.xlsx) | Proposed remediation plan with owners, dates, and closure criteria |
+| [evidence/README.md](evidence/README.md) | Evidence register and provenance notes for screenshots and scan artifacts |
 
-This is a training exercise with a fictional business context. Nikto and published OpenVAS material underpin the assessment; no implemented fixes or successful exploitation are claimed. The nine tracked observations are not nine proven exploits.
+## Repository structure
 
-I also ran `nmap -A 127.0.0.1` in the AttackBox. That aggressive-mode localhost scan is a separate learning activity, documented in the evidence register.
+```text
+THM-Vuln-Nikto-Scan/
+├── README.md
+├── docs/
+│   ├── README.md
+│   ├── Executive_Risk_Memo.md
+│   └── FINDINGS.md
+├── evidence/
+│   ├── README.md
+│   ├── nikto-scan-excerpt.txt
+│   ├── nmap-aggressive-localhost.png
+│   ├── published-openvas-cves.png
+│   ├── published-openvas-results.png
+│   ├── thm-room-completion.png
+│   └── user-lab-progress.png
+├── Project_1_Vulnerability_Risk_POAM.xlsx
+├── .gitignore
+└── .github/   (optional for future automation)
+```
 
-[View room completion](evidence/thm-room-completion.png).
+## Scope and limitations
+
+This is a training exercise with a fictional business context. The assessment uses Nikto output and published OpenVAS material as supporting evidence, and it does not claim successful exploitation or a fully validated production environment.
+
+The key objective is to show how scanner findings can be framed as:
+- business risk
+- prioritized remediation actions
+- evidence-based governance decisions
+- risk communication for non-technical stakeholders
+
+## Executive summary
+
+The project tracks a set of observations including:
+- possible remote file inclusion exposure
+- anonymous FTP access risk
+- exposed diagnostic interfaces such as phpinfo
+- weak session cookie protections
+- unnecessary directory indexing and status exposure
+- missing framing protections and debug method exposure
+
+The recommended posture is validation-first remediation: confirm the most severe items before concluding the application is exploitable, while immediately governing the risks that create information exposure or reconnaissance opportunities.
+
+## Evidence and provenance
+
+All screenshots and scan excerpts are documented in the evidence register to make the project auditable and transparent about what was captured versus what was inferred.
+
+## Final status
+
+This repository is structured as a polished governance and evidence package for a vulnerability assessment engagement and is ready to be used as a portfolio project or submission artifact.
