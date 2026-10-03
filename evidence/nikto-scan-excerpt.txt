@@ -1,0 +1,21 @@
+Source: user-supplied excerpt in this conversation. Historical teaching scan; not independently rerun.
+Command: nikto -h http://10.65.157.187:8080
+Nikto v2.1.5
+Target IP: 10.82.73.204
+Target Hostname: ip-10.65.157.187.eu-west-1.compute.internal
+Target Port: 8080
+Start Time: 2025-12-06 16:52:38 (GMT0)
+Server: Apache/2.4.58 (Ubuntu)
+Cookie PHPSESSID created without the httponly flag
+The anti-clickjacking X-Frame-Options header is not present.
+No CGI Directories found (use '-C all' to force check all possible dirs)
+DEBUG HTTP verb may show server debugging information.
+OSVDB-561: /server-status: This reveals Apache information.
+OSVDB-3233: /info.php: PHP is installed, and a test script which runs phpinfo() was found.
+OSVDB-3268: /static/: Directory indexing found.
+OSVDB-5292: /info.php?file=http://cirt.net/rfiinc.txt?: RFI test flagged.
+6544 items checked: 0 error(s) and 7 item(s) reported on remote host
+End Time: 2025-12-06 16:52:45 (GMT0) (7 seconds)
+1 host(s) tested
+
+Assessment note: the IP/hostname inconsistency is preserved. RFI is an unvalidated scanner flag. Excerpt formatting was normalized for readability.
